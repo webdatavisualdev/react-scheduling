@@ -1,0 +1,107 @@
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+#root {
+  padding: 15px;
+  text-align: center;
+}
+
+.loader {
+  border: 5px solid #888;
+  border-top: 5px solid #333;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  min-width: 250px;
+  margin: auto;
+  height: 100%;
+  justify-content: center;
+}
+
+.form.appointment-form {
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.form h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.form input {
+  margin: 5px 0;
+}
+
+input {
+  padding: 10px 5px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 30px;
+  background-color: #267dff;
+  color: white;
+  font-weight: bold;
+}
+
+button[disabled] {
+  background-color: #888;
+}
+
+button.btn-cancel {
+  background-color: #ff4848;
+}
+
+.form button {
+  margin: 5px 0 10px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.appointment-container {
+  display: flex;
+}
+
+.appointment-container .form {
+  margin-left: 15px;
+}
+
+@media (max-width: 768px) {
+  .appointment-container {
+    flex-direction: column;
+  }
+  .appointment-container .form {
+    order: 1;
+  }
+  .appointment-container .calendar {
+    order: 2;
+  }
+}
