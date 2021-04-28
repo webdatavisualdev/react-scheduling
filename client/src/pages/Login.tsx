@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import firebase from 'firebase';
 import Loader from '../components/Loader';
+import { AppContext } from '../App';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
+  const { dispatch } = useContext(AppContext);
 
   const history = useHistory();
 
@@ -29,6 +31,10 @@ export default function Login() {
       .then(res => {
         setLoading(false);
         if (res.user) {
+          dispatch({
+            type: 'setUser',
+            payload: res.user,
+          });
           localStorage.setItem('uid', res.user.uid);
           history.push('/set-appointment');
         }

@@ -35,6 +35,10 @@ export async function getAppointments(uid: string) {
   return firebaseFunctions.httpsCallable('getAppointments')(uid);
 }
 
+export async function getInvitedAppointments(email: string) {
+  return firebaseFunctions.httpsCallable('getInvitedAppointments')(email);
+}
+
 export async function getAppointment(id: string) {
   return firebaseFunctions.httpsCallable('getAppointment')(id);
 }

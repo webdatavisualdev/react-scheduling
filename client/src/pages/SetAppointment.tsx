@@ -4,7 +4,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from "@fullcalendar/interaction";
 
 import firebase from 'firebase'; 
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { setAppointment, getAppointments } from '../fb-sdk';
 import Loader from '../components/Loader';
@@ -100,6 +100,7 @@ export default function SetAppointment() {
 
   return (
     <>
+      <Link to="/invited-appointments">Go to invited appointments</Link>
       <div className="appointment-container">
         <div style={{flex: 1}} className="calendar">
           <FullCalendar

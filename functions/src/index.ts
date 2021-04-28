@@ -37,6 +37,18 @@ export const getAppointments = functions.https.onCall(async (data, context) => {
   };
 });
 
+export const getInvitedAppointments = functions.https.onCall(async (data, context) => {
+  const appointmentsDocs = await firestoreDB.collection('appointments').where('otherUser', '==', data).get();
+  let appointments: any[] = [];
+  appointmentsDocs.forEach(doc => {
+    appointments.push({...doc.data(), id: doc.id});
+  });
+  return { 
+    success: true,
+    appointments,
+  };
+});
+
 export const getAppointment = functions.https.onCall(async (data, context) => {
   const doc = await firestoreDB.collection('appointments').doc(data).get();
   return { 

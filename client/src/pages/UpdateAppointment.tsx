@@ -49,7 +49,7 @@ export default function UpdateAppointment(props: any) {
         !appointment ?
         <p>There is no appointment.</p> :
         (
-          <div className="">
+          <div>
             <p>You have an appointment from {new Date(appointment?.start || new Date()).toString()} to {new Date(appointment?.end || new Date()).toString()}. Do you want to accept?</p>
             <div className="d-flex justify-content-center">
               <button onClick={() => handleClick(true)} style={{marginRight: 15}}>Accept</button>
